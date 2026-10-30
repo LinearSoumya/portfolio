@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soumyadip Roy | Data Scientist &amp; GenAI Engineer</title>
+<meta name="description" content="Portfolio of Soumyadip Roy: GenAI, RAG and Azure-based AI systems for maritime operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E2A3F;--bg2:#12344d;--ink:#EAF1F4;--mute:#9FB6C3;--acc:#FF6A3D;--sea:#7FD1E8;--line:rgba(234,241,244,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.6;font-size:17px;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--acc);z-index:50}
+nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;backdrop-filter:blur(10px);background:rgba(14,42,63,.65);border-bottom:1px solid var(--line)}
+nav b{font-weight:700;letter-spacing:-.01em}
+nav div{display:flex;gap:22px;font-size:15px}
+nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+nav a:hover{color:var(--ink)}
+@media(max-width:640px){nav div a:not(:last-child){display:none}}
+section{padding:110px 5vw;max-width:1120px;margin:auto}
+h2{font-size:clamp(30px,5vw,48px);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin-bottom:12px}
+.sub{color:var(--mute);max-width:56ch;margin-bottom:44px}
+/* hero */
+#hero{position:relative;min-height:100svh;max-width:none;padding:0;display:flex;align-items:flex-end}
+#cv{position:absolute;inset:0;width:100%;height:100%}
+.hc{position:relative;z-index:2;padding:0 5vw 9vh;max-width:1120px;margin:auto;width:100%;pointer-events:none}
+.hc *{pointer-events:auto}
+.hc p.hi{color:var(--sea);margin-bottom:10px}
+h1{font-size:clamp(48px,11vw,138px);line-height:.92;letter-spacing:-.05em;font-weight:800;animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(40px);filter:blur(8px)}}
+.role{font-size:clamp(18px,2.6vw,28px);margin-top:20px;min-height:1.5em;color:var(--ink)}
+.role i{display:inline-block;width:2px;height:1em;background:var(--acc);margin-left:3px;vertical-align:-.12em;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.hint{margin-top:18px;color:var(--mute);font-size:14px;max-width:48ch}
+.btns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid var(--line);transition:transform .2s,background .2s}
+.btn.p{background:var(--acc);border-color:var(--acc);color:#1a0a04}
+.btn:hover{transform:translateY(-3px)}
+#tip{position:fixed;pointer-events:none;z-index:60;padding:6px 12px;border-radius:8px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:600;opacity:0;transition:opacity .15s;transform:translate(14px,14px)}
+/* about */
+.ab{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center}
+.ph{position:relative;aspect-ratio:1;border-radius:46% 54% 50% 50%/52% 46% 54% 48%;overflow:hidden;border:1px solid var(--line);transition:border-radius 1.2s}
+.ph:hover{border-radius:50%}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ab p{margin-bottom:16px;color:#cfdce4;max-width:62ch}
+@media(max-width:760px){.ab{grid-template-columns:1fr;gap:30px}.ph{max-width:260px}}
+/* timeline */
+.tl{border-left:1px solid var(--line);margin-left:6px}
+details{position:relative;padding:4px 0 4px 28px;margin-bottom:10px}
+details::before{content:"";position:absolute;left:-6px;top:20px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--sea);transition:.25s}
+details[open]::before{background:var(--acc);border-color:var(--acc);transform:scale(1.3)}
+summary{cursor:pointer;list-style:none;padding:10px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+summary::-webkit-details-marker{display:none}
+summary b{font-size:20px;letter-spacing:-.02em}
+summary span{color:var(--mute);font-size:14px}
+summary em{font-style:normal;color:var(--sea);width:100%;font-size:15px}
+details ul{padding:0 0 14px 18px;color:#cfdce4;max-width:70ch}
+details li{margin-bottom:8px}
+details[open] ul{animation:op .35s ease}
+@keyframes op{from{opacity:0;transform:translateY(-6px)}}
+/* projects */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{font:inherit;font-size:14px;padding:7px 15px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--sea)}
+.chip[aria-pressed=true]{background:var(--sea);color:var(--bg);border-color:var(--sea);font-weight:600}
+.pg{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.pc{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:28px;transition:opacity .3s,transform .3s,border-color .3s;display:flex;flex-direction:column;gap:12px}
+.pc.off{opacity:.25;transform:scale(.97)}
+.pc.on{border-color:var(--acc)}
+.pc h3{font-size:24px;letter-spacing:-.02em;line-height:1.15}
+.pc p{color:#cfdce4;font-size:16px}
+.pc small{color:var(--mute);font-size:13px;margin-top:auto}
+.pc button{align-self:flex-start;font:inherit;font-size:14px;background:none;border:0;color:var(--acc);cursor:pointer;padding:0;font-weight:600}
+.pc .more{display:none;color:var(--mute);font-size:15px;padding-left:18px}
+.pc.x .more{display:block;animation:op .35s}
+/* skills */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px 40px}
+.sg h3{font-size:15px;color:var(--sea);margin-bottom:8px;font-weight:600}
+.sg p{color:#cfdce4;font-size:16px}
+/* certs */
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.cc{display:block;text-decoration:none;padding:24px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(160deg,var(--bg2),var(--bg));transition:transform .15s,border-color .2s;transform-style:preserve-3d;will-change:transform}
+.cc:hover{border-color:var(--acc)}
+.cc b{display:block;font-size:19px;line-height:1.25;letter-spacing:-.01em}
+.cc span{display:block;color:var(--mute);font-size:14px;margin-top:10px}
+/* contact */
+#contact{text-align:left}
+.big{display:inline-block;font-size:clamp(24px,5.4vw,60px);font-weight:700;letter-spacing:-.04em;line-height:1.1;text-decoration:none;border-bottom:3px solid var(--acc);padding-bottom:4px;word-break:break-all;transition:color .2s}
+.big:hover{color:var(--acc)}
+.soc{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
+.soc a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line);transition:.2s}
+.soc a:hover{color:var(--ink);border-color:var(--acc)}
+footer{padding:30px 5vw 50px;text-align:center;color:var(--mute);font-size:14px}
+.rv{opacity:0;transform:translateY(24px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="tip"></div>
+<nav><b>Soumyadip Roy</b><div><a href="#about">About</a><a href="#work">Work</a><a href="#projects">Projects</a><a href="#certs">Certificates</a><a href="#contact">Contact</a></div></nav>
+
+<section id="hero" aria-label="Introduction">
+  <canvas id="cv" aria-hidden="true"></canvas>
+  <div class="hc">
+    <p class="hi">Hi, I’m</p>
+    <h1>Soumyadip<br>Roy</h1>
+    <p class="role"><span id="ty"></span><i></i></p>
+    <p class="hint">The dots behind me are incident reports, news articles and student questions grouped by meaning. Move your cursor through them.</p>
+    <div class="btns"><a class="btn p" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="ab rv">
+    <div class="ph"><img src="photo.jpg" alt="Portrait of Soumyadip Roy" width="720" height="720"></div>
+    <div>
+      <h2>I turn piles of documents into answers.</h2>
+      <p>I’m a Data Scientist on the AI Engineering team at Mitsui O.S.K. Lines (MOL IT) in Kolkata. I build search, question-answering and summarisation systems on Azure OpenAI that save analysts hours of reading.</p>
+      <p>My day-to-day is Python, FastAPI, RAG pipelines and Azure Functions. I started in classical machine learning and NLP, and I still reach for simple, explainable methods when they work.</p>
+      <p>Outside of work I keep learning cloud and GenAI tooling, and I hold AWS and data science certifications.</p>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <h2 class="rv">Where I’ve worked</h2>
+  <p class="sub rv">Tap a role to open it.</p>
+  <div class="tl rv">
+    <details open><summary><b>Data Scientist, AI Engineering</b><span>Sep 2025 – Present</span><em>Mitsui O.S.K. Lines (MOL IT) · Kolkata</em></summary>
+      <ul><li>Built AI search and question-answering over thousands of vessel and incident documents, cutting analyst research from hours to seconds.</li>
+      <li>Added natural-language data querying with automatic charts, so business users can pull routine insights themselves.</li>
+      <li>Automated daily news collection, LLM summaries and delivery to multiple departments.</li>
+      <li>Delivered LLM token-usage and cost analytics that show per-project AI spend.</li></ul></details>
+    <details><summary><b>Machine Learning Engineer</b><span>Aug 2024 – Aug 2025</span><em>Codeyoung · EdTech</em></summary>
+      <ul><li>Worked on Noah, an internal AI chatbot that resolves student queries.</li>
+      <li>Built a TF-IDF and Scikit-learn intent classifier to route queries to the right module.</li>
+      <li>Created a preprocessing and clustering pipeline that groups similar questions and reduces duplicates.</li></ul></details>
+    <details><summary><b>Cloud Intern, AWS Solutions Architect</b><span>Sep 2023 – Mar 2024</span><em>AI Variant · Bengaluru, remote</em></summary>
+      <ul><li>Hands-on work with AWS services including EC2 and Elastic Beanstalk.</li></ul></details>
+    <details><summary><b>Data Science Intern</b><span>Aug 2023 – Feb 2024</span><em>AI Variant · Bengaluru, remote</em></summary>
+      <ul><li>Worked on BigMart sales prediction and big data analytics projects using machine learning.</li></ul></details>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="rv">Things I’ve built</h2>
+  <p class="sub rv">Pick a skill to see which projects use it.</p>
+  <div class="chips rv" id="chips" role="group" aria-label="Filter projects by skill"></div>
+  <div class="pg rv" id="pg"></div>
+</section>
+
+<section id="skills">
+  <h2 class="rv">What I work with</h2>
+  <div class="sg rv" style="margin-top:34px">
+    <div><h3>Generative AI</h3><p>Azure OpenAI (GPT-4o), RAG, LangChain, HuggingFace, FAISS, BM25 and cross-encoder reranking, prompt engineering</p></div>
+    <div><h3>Azure cloud</h3><p>Functions and Durable Functions, Event Grid, Blob Storage, Application Insights (KQL), DevOps Pipelines, Microsoft Graph API</p></div>
+    <div><h3>Machine learning</h3><p>Scikit-learn, TensorFlow, NLP, clustering (UMAP, HDBSCAN), ensembles, regression, classification</p></div>
+    <div><h3>Languages and tools</h3><p>Python, SQL, FastAPI, Flask, Pandas, NumPy, Plotly, PostgreSQL, Streamlit, Git</p></div>
+    <div><h3>AWS cloud</h3><p>EC2, S3, VPC, Lambda, API Gateway, SNS, Elastic Beanstalk, CloudWatch</p></div>
+  </div>
+</section>
+
+<section id="certs">
+  <h2 class="rv">Certificates</h2>
+  <p class="sub rv">Each card opens the certificate.</p>
+  <div class="cg rv">
+    <a class="cc" href="https://drive.google.com/file/d/1mvkWdgy0qYEQbN9lpRfFHsmLdQt69l8h/view?usp=sharing" target="_blank" rel="noopener"><b>AWS Solutions Architect Associate</b><span>ExcelR · Feb 2024, with distinction</span></a>
+    <a class="cc" href="https://drive.google.com/file/d/1awtush__ztPED9ZZ5wV4qdU_WaJ65AxJ/view?usp=sharing" target="_blank" rel="noopener"><b>Data Science Certification</b><span>ExcelR · Nov 2023, with distinction</span></a>
+    <a class="cc" href="https://drive.google.com/file/d/1BofX5wQspgw-DE6UtFDmgJ-JyZUhxqFY/view?usp=sharing" target="_blank" rel="noopener"><b>Machine Learning with Python</b><span>IBM (via ExcelR) · Dec 2023</span></a>
+    <a class="cc" href="https://drive.google.com/file/d/1MOqLM267o9huF31Yft7-arDEVaJ9IbxD/view?usp=sharing" target="_blank" rel="noopener"><b>Exploratory Data Analysis</b><span>Accenture, FutureSkills Prime · Feb 2024</span></a>
+  </div>
+  <p class="sub rv" style="margin:50px 0 0">Education: B.Tech in Computer Science Engineering, University of Engineering &amp; Management, Kolkata (2019 – 2023).</p>
+</section>
+
+<section id="contact">
+  <h2 class="rv">Let’s talk</h2>
+  <p class="sub rv">Open to conversations about GenAI, data science and cloud roles.</p>
+  <a class="big rv" href="mailto:rsoumya0206@gmail.com">rsoumya0206@gmail.com</a>
+  <div class="soc rv"><a href="https://www.linkedin.com/in/soumyadip-roy-592406219" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/LinearSoumya" target="_blank" rel="noopener">GitHub</a><a href="https://www.datascienceportfol.io/SoumyadipRoy" target="_blank" rel="noopener">Data science portfolio</a></div>
+</section>
+<footer>© <span id="yr"></span> Soumyadip Roy</footer>
+
+<script>
+/* typing role */
+const roles=["Data Scientist, AI Engineering at MOL IT","I build RAG and search systems","I automate with Azure OpenAI","I cluster messy text into themes"];
+let ri=0,ci=0,del=false;const ty=document.getElementById('ty');
+(function t(){const w=roles[ri];ci+=del?-1:1;ty.textContent=w.slice(0,ci);let d=del?25:55;
+if(!del&&ci===w.length){del=true;d=1800}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;d=300}setTimeout(t,d)})();
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* progress bar + reveal */
+const bar=document.getElementById('bar');
+addEventListener('scroll',()=>{bar.style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+
+/* projects + filter */
+const P=[
+{t:"NewsHub: AI news intelligence",d:"Collects maritime and technology news from publishers, summarises each article with GPT-4o and sends a curated daily brief.",m:"Includes a chat interface to question the news corpus, automated PDF reports and scheduled email delivery. Azure Durable Functions process several departments in parallel.",k:["LLM","RAG","Azure","FastAPI"],s:"Azure OpenAI GPT-4o · FastAPI"},
+{t:"MODS: incident search and insight",d:"Lets safety teams search and analyse 1,698 vessel incident records in plain language.",m:"Combines hybrid semantic search (FAISS + BM25 with cross-encoder reranking) with natural-language querying of structured data. Auto-generates charts and clusters incidents into labelled topics with UMAP and HDBSCAN.",k:["LLM","RAG","Clustering","NLP"],s:"FAISS · LangChain · UMAP · HDBSCAN"},
+{t:"Noah: AI doubt resolution",d:"The query-understanding layer of Codeyoung’s internal AI tutor.",m:"Matches new student doubts against previously answered ones to return instant replies, and clusters similar questions to cut escalations to human mentors.",k:["NLP","Clustering"],s:"TF-IDF · Cosine similarity · Scikit-learn"}];
+const tags=["All",...new Set(P.flatMap(p=>p.k))];
+const chips=document.getElementById('chips'),pg=document.getElementById('pg');
+P.forEach(p=>{const c=document.createElement('article');c.className='pc';
+c.innerHTML=`<h3>${p.t}</h3><p>${p.d}</p><ul class="more"><li>${p.m}</li></ul><button aria-expanded="false">Show details</button><small>${p.s}</small>`;
+const b=c.querySelector('button');b.onclick=()=>{const o=c.classList.toggle('x');b.textContent=o?'Hide details':'Show details';b.setAttribute('aria-expanded',o)};
+p.el=c;pg.appendChild(c)});
+tags.forEach((g,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=g;b.setAttribute('aria-pressed',i===0);
+b.onclick=()=>{[...chips.children].forEach(x=>x.setAttribute('aria-pressed',x===b));
+P.forEach(p=>{const m=g==='All'||p.k.includes(g);p.el.classList.toggle('off',!m);p.el.classList.toggle('on',g!=='All'&&m)})};chips.appendChild(b)});
+
+/* 3D tilt on certificates */
+document.querySelectorAll('.cc').forEach(c=>{
+c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*12}deg) rotateX(${-y*12}deg) translateY(-4px)`});
+c.addEventListener('pointerleave',()=>c.style.transform='')});
+
+/* hero: embedding-space canvas */
+(function(){
+const cv=document.getElementById('cv'),cx=cv.getContext('2d'),tip=document.getElementById('tip');
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const C=[{n:"Incident reports",c:"#FF6A3D",x:.72,y:.28},{n:"News articles",c:"#7FD1E8",x:.88,y:.62},{n:"Student questions",c:"#F5D76E",x:.58,y:.62},{n:"Vessel documents",c:"#B8A1FF",x:.42,y:.22}];
+let W,H,pts=[],m={x:-999,y:-999},hov=-1,dpr=Math.min(devicePixelRatio||1,2);
+function size(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+const mob=W<700;pts=[];C.forEach((k,i)=>{k.px=(mob?.25+k.x*.6:k.x)*W;k.py=(mob?.08+k.y*.45:k.y*.86)*H;k.r=Math.min(W,H)*(mob?.13:.11);
+for(let j=0;j<(mob?26:44);j++){const a=Math.random()*6.28,d=Math.sqrt(Math.random())*k.r;pts.push({i,a,d,s:(Math.random()-.5)*.004,x:k.px+Math.cos(a)*d,y:k.py+Math.sin(a)*d,vx:0,vy:0,z:Math.random()*1.6+1})}})}
+function draw(){cx.clearRect(0,0,W,H);hov=-1;
+C.forEach((k,i)=>{if(Math.hypot(m.x-k.px,m.y-k.py)<k.r*1.15)hov=i});
+pts.forEach(p=>{const k=C[p.i];if(!reduce)p.a+=p.s;const tx=k.px+Math.cos(p.a)*p.d,ty=k.py+Math.sin(p.a)*p.d;
+const dx=p.x-m.x,dy=p.y-m.y,dd=Math.hypot(dx,dy);if(dd<110){const f=(110-dd)/110;p.vx+=dx/dd*f*2.2;p.vy+=dy/dd*f*2.2}
+p.vx+=(tx-p.x)*.03;p.vy+=(ty-p.y)*.03;p.vx*=.86;p.vy*=.86;p.x+=p.vx;p.y+=p.vy;
+cx.globalAlpha=hov===-1||hov===p.i?.95:.22;cx.fillStyle=k.c;cx.beginPath();cx.arc(p.x,p.y,p.z+(hov===p.i?.8:0),0,6.28);cx.fill()});
+/* lines from cursor to nearby points */
+cx.lineWidth=.6;pts.forEach(p=>{const d=Math.hypot(p.x-m.x,p.y-m.y);if(d<150){cx.globalAlpha=(1-d/150)*.5;cx.strokeStyle=C[p.i].c;cx.beginPath();cx.moveTo(m.x,m.y);cx.lineTo(p.x,p.y);cx.stroke()}});
+cx.globalAlpha=1;
+tip.style.opacity=hov>-1?1:0;if(hov>-1)tip.textContent=C[hov].n;
+requestAnimationFrame(draw)}
+function mv(e){const r=cv.getBoundingClientRect(),t=e.touches?e.touches[0]:e;m.x=t.clientX-r.left;m.y=t.clientY-r.top;tip.style.left=t.clientX+'px';tip.style.top=t.clientY+'px'}
+addEventListener('pointermove',mv);addEventListener('touchmove',mv,{passive:true});
+document.getElementById('hero').addEventListener('pointerleave',()=>{m.x=m.y=-999});
+addEventListener('resize',size);size();draw();
+})();
+</script>
+</body>
+</html>
