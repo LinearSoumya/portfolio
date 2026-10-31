@@ -27,14 +27,15 @@ nav .l a:hover{color:var(--ink)}
 #th{font:inherit;font-size:14px;font-weight:600;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--ink);padding:7px 14px;cursor:pointer;white-space:nowrap;transition:.2s}
 #th:hover{border-color:var(--acc)}
 @media(max-width:700px){nav .l{display:none}}
-section{padding:100px 5vw;max-width:1120px;margin:auto}
+section{padding:84px 5vw;max-width:1120px;margin:auto}
 h2{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin-bottom:12px}
+.eyebrow{display:inline-block;color:var(--acc);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
 .sub{color:var(--mute);max-width:56ch;margin-bottom:40px}
-/* hero */
-#hero{position:relative;min-height:100svh;max-width:none;padding:0;display:flex;align-items:flex-end}
+/* hero: content is centred, no big empty gap */
+#hero{position:relative;min-height:88svh;max-width:none;padding:0;display:flex;align-items:center}
 #cv{position:absolute;inset:0;width:100%;height:100%}
-.hc{position:relative;z-index:2;padding:0 5vw 8vh;max-width:1120px;margin:auto;width:100%;pointer-events:none}
-.card{pointer-events:auto;border-radius:30px;padding:30px;display:grid;grid-template-columns:168px 1fr;gap:30px;align-items:center;max-width:780px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hc{position:relative;z-index:2;padding:118px 5vw 44px;max-width:1120px;margin:auto;width:100%;pointer-events:none}
+.card{pointer-events:auto;border-radius:30px;padding:30px;display:grid;grid-template-columns:168px 1fr;gap:30px;align-items:center;max-width:720px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
 @keyframes rise{from{opacity:0;transform:translateY(34px);filter:blur(8px)}}
 .pf{width:168px;height:168px;border-radius:50%;padding:4px;background:conic-gradient(var(--acc),var(--sea),var(--acc))}
 .pf img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--bg)}
@@ -47,13 +48,13 @@ h1{font-size:clamp(34px,5.6vw,66px);line-height:1.04;letter-spacing:-.035em;font
 .btn{display:inline-block;padding:11px 22px;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid var(--line);transition:transform .2s,border-color .2s}
 .btn.p{background:var(--acc);border-color:var(--acc);color:#1a0a04}
 .btn:hover{transform:translateY(-3px)}
-.hint{margin-top:14px;color:var(--mute);font-size:14px;max-width:56ch;pointer-events:auto}
-/* robot */
-.rbt{position:absolute;z-index:3;left:calc(max(0px,(100vw - 1120px)/2) + 5vw);top:clamp(88px,17vh,190px);display:flex;align-items:center;gap:20px;cursor:pointer;max-width:92vw}
-.bub{position:relative;padding:14px 18px;border-radius:20px;font-size:15px;line-height:1.45;width:310px;min-height:118px;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);box-shadow:var(--sh)}
+.hint{margin-top:16px;color:var(--mute);font-size:14px;max-width:56ch;pointer-events:auto}
+/* robot now sits right under the card, in the flow */
+.rbt{position:relative;pointer-events:auto;display:flex;align-items:center;gap:18px;cursor:pointer;margin-top:26px;max-width:100%;width:max-content}
+.bub{position:relative;padding:14px 18px;border-radius:20px;font-size:15px;line-height:1.45;width:340px;max-width:calc(100vw - 150px);min-height:100px;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);box-shadow:var(--sh)}
 .bub::after{content:"";position:absolute;left:-8px;top:36px;width:14px;height:14px;background:var(--glass);border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
 .bub small{display:block;color:var(--mute);font-size:12px;margin-top:8px}
-#bot{width:120px;height:auto;flex:none;overflow:visible;animation:bob 3s ease-in-out infinite}
+#bot{width:104px;height:auto;flex:none;overflow:visible;animation:bob 3s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-8px)}}
 .rb{fill:color-mix(in srgb,var(--sea) 20%,var(--bg));stroke:var(--sea);stroke-width:3}
 .scr{fill:var(--bg)}
@@ -68,9 +69,23 @@ h1{font-size:clamp(34px,5.6vw,66px);line-height:1.04;letter-spacing:-.035em;font
 .wave{transform-origin:102px 108px;animation:wave 1.1s ease-in-out infinite}
 @keyframes wave{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(24deg)}}
 .hand{fill:var(--acc)}
-@media(max-width:700px){.rbt{top:84px;gap:12px}#bot{width:78px}.bub{width:min(240px,62vw);min-height:100px;font-size:14px;padding:12px 14px}.bub::after{top:26px}}
-@media(max-width:700px){.card{grid-template-columns:1fr;text-align:center;justify-items:center;padding:24px}.pf{width:120px;height:120px}.btns{justify-content:center}}
+@media(max-width:700px){#bot{width:70px}.rbt{gap:12px;margin-left:auto;margin-right:auto}.bub{min-height:96px;font-size:14px;padding:12px 14px}.bub::after{top:26px}}
+@media(max-width:700px){.card{grid-template-columns:1fr;text-align:center;justify-items:center;padding:24px}.pf{width:120px;height:120px}.btns{justify-content:center}.hc{padding-top:100px}.hint{text-align:center;margin-left:auto;margin-right:auto}}
 #tip{position:fixed;pointer-events:none;z-index:70;padding:6px 12px;border-radius:8px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:600;opacity:0;transition:opacity .15s;transform:translate(14px,14px)}
+/* tech marquee */
+.mq{overflow:hidden;border-block:1px solid var(--line);background:var(--glass);padding:14px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq div{display:flex;gap:44px;width:max-content;animation:mq 34s linear infinite}
+.mq span{color:var(--mute);font-weight:600;font-size:15px;white-space:nowrap}
+.mq span::before{content:"◆";color:var(--acc);margin-right:44px;font-size:10px;vertical-align:2px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* stats */
+#stats{padding-top:56px;padding-bottom:0}
+.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-radius:26px;overflow:hidden}
+.st div{padding:26px 24px;text-align:center;border-right:1px solid var(--line)}
+.st div:last-child{border-right:0}
+.st b{display:block;font-size:clamp(34px,4.4vw,52px);letter-spacing:-.04em;line-height:1.05;background:linear-gradient(90deg,var(--sea),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent}
+.st span{color:var(--mute);font-size:14px}
+@media(max-width:700px){.st div{border-right:0;border-bottom:1px solid var(--line)}.st div:last-child{border-bottom:0}}
 /* about */
 .ab{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:start}
 .ab p{margin-bottom:16px;color:var(--txt);max-width:62ch}
@@ -78,6 +93,12 @@ h1{font-size:clamp(34px,5.6vw,66px);line-height:1.04;letter-spacing:-.035em;font
 .facts div span{display:block;color:var(--mute);font-size:14px}
 .facts div b{font-size:18px;font-weight:600}
 @media(max-width:760px){.ab{grid-template-columns:1fr}}
+.wd{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:44px}
+.wd article{border-radius:22px;padding:26px;transition:transform .25s,border-color .25s}
+.wd article:hover{transform:translateY(-6px);border-color:var(--acc)}
+.wd i{font-style:normal;display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:color-mix(in srgb,var(--acc) 18%,transparent);font-size:22px;margin-bottom:14px}
+.wd h3{font-size:20px;letter-spacing:-.02em;margin-bottom:6px}
+.wd p{color:var(--txt);font-size:15px}
 /* timeline */
 .tl{border-left:1px solid var(--line);margin-left:6px}
 details{position:relative;padding:4px 0 4px 28px;margin-bottom:10px}
@@ -124,7 +145,8 @@ details[open] ul{animation:op .35s ease}
 .cc b{display:block;font-size:19px;line-height:1.25;letter-spacing:-.01em}
 .cc span{display:block;color:var(--mute);font-size:14px;margin-top:10px}
 /* contact */
-.big{display:inline-block;font-size:clamp(24px,5.4vw,58px);font-weight:700;letter-spacing:-.04em;line-height:1.1;text-decoration:none;border-bottom:3px solid var(--acc);padding-bottom:4px;word-break:break-all;transition:color .2s}
+#contact .box{border-radius:32px;padding:clamp(28px,5vw,56px)}
+.big{display:inline-block;font-size:clamp(22px,4.6vw,52px);font-weight:700;letter-spacing:-.04em;line-height:1.1;text-decoration:none;border-bottom:3px solid var(--acc);padding-bottom:4px;word-break:break-all;transition:color .2s}
 .big:hover{color:var(--acc)}
 .soc{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
 .soc a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line);transition:.2s}
@@ -142,21 +164,6 @@ footer{padding:30px 5vw 50px;text-align:center;color:var(--mute);font-size:14px}
 
 <section id="hero" aria-label="Introduction">
   <canvas id="cv" aria-hidden="true"></canvas>
-  <div class="rbt" id="rbt" role="button" tabindex="0" aria-label="Friendly robot. Activate to hear more about Soumyadip">
-    <svg id="bot" viewBox="0 0 140 160" aria-hidden="true">
-      <line x1="70" y1="8" x2="70" y2="26" stroke="var(--sea)" stroke-width="3"/>
-      <circle class="ant" cx="70" cy="7" r="6"/>
-      <rect class="rb" x="30" y="26" width="80" height="62" rx="20"/>
-      <rect class="scr" x="40" y="37" width="60" height="40" rx="13"/>
-      <g id="eyes"><circle class="eye" cx="57" cy="55" r="6"/><circle class="eye" cx="83" cy="55" r="6"/></g>
-      <g class="mouth"><path d="M60 68 Q70 76 80 68" stroke="var(--acc)" stroke-width="3" fill="none" stroke-linecap="round"/></g>
-      <rect class="rb" x="38" y="96" width="64" height="52" rx="16"/>
-      <circle class="ant" cx="70" cy="122" r="7"/>
-      <path class="arm" d="M38 108 L22 132"/>
-      <g class="wave"><path class="arm" d="M102 108 L126 84"/><circle class="hand" cx="128" cy="82" r="8"/></g>
-    </svg>
-    <div class="bub"><span id="say"></span><small>Click me to hear more</small></div>
-  </div>
   <div class="hc">
     <div class="card g">
       <div class="pf"><img src="photo.jpg" alt="Portrait of Soumyadip Roy" width="720" height="720"></div>
@@ -167,13 +174,40 @@ footer{padding:30px 5vw 50px;text-align:center;color:var(--mute);font-size:14px}
         <div class="btns"><a class="btn p" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
       </div>
     </div>
+    <div class="rbt" id="rbt" role="button" tabindex="0" aria-label="Friendly robot. Activate to hear more about Soumyadip">
+      <svg id="bot" viewBox="0 0 140 160" aria-hidden="true">
+        <line x1="70" y1="8" x2="70" y2="26" stroke="var(--sea)" stroke-width="3"/>
+        <circle class="ant" cx="70" cy="7" r="6"/>
+        <rect class="rb" x="30" y="26" width="80" height="62" rx="20"/>
+        <rect class="scr" x="40" y="37" width="60" height="40" rx="13"/>
+        <g id="eyes"><circle class="eye" cx="57" cy="55" r="6"/><circle class="eye" cx="83" cy="55" r="6"/></g>
+        <g class="mouth"><path d="M60 68 Q70 76 80 68" stroke="var(--acc)" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+        <rect class="rb" x="38" y="96" width="64" height="52" rx="16"/>
+        <circle class="ant" cx="70" cy="122" r="7"/>
+        <path class="arm" d="M38 108 L22 132"/>
+        <g class="wave"><path class="arm" d="M102 108 L126 84"/><circle class="hand" cx="128" cy="82" r="8"/></g>
+      </svg>
+      <div class="bub"><span id="say"></span><small>Click me to hear more</small></div>
+    </div>
     <p class="hint">The dots are incident reports, news articles and student questions grouped by meaning. Move your cursor through them.</p>
+  </div>
+</section>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="stats">
+  <div class="st g rv">
+    <div><b data-n="1698">1,698</b><span>Incident records searchable</span></div>
+    <div><b data-n="3">3</b><span>Flagship AI projects</span></div>
+    <div><b data-n="4">4</b><span>Certifications</span></div>
+    <div><b data-n="2" data-s="+">2+</b><span>Years in ML &amp; GenAI</span></div>
   </div>
 </section>
 
 <section id="about">
   <div class="ab rv">
     <div>
+      <span class="eyebrow">About</span>
       <h2>I turn piles of documents into answers.</h2>
       <p>I’m a Data Scientist on the AI Engineering team at Mitsui O.S.K. Lines (MOL IT) in Kolkata. I build search, question-answering and summarisation systems on Azure OpenAI that save analysts hours of reading.</p>
       <p>My day-to-day is Python, FastAPI, RAG pipelines and Azure Functions. I started in classical machine learning and NLP, and I still reach for simple, explainable methods when they work.</p>
@@ -185,9 +219,15 @@ footer{padding:30px 5vw 50px;text-align:center;color:var(--mute);font-size:14px}
       <div><span>Education</span><b>B.Tech CSE, UEM Kolkata</b></div>
     </div>
   </div>
+  <div class="wd rv">
+    <article class="g"><i>🔎</i><h3>Search &amp; RAG</h3><p>Hybrid semantic search and question-answering over thousands of documents.</p></article>
+    <article class="g"><i>📊</i><h3>Data to insight</h3><p>Natural-language querying with automatic charts and topic clustering.</p></article>
+    <article class="g"><i>⚙️</i><h3>Automation on Azure</h3><p>Durable Functions pipelines for daily news, summaries and email delivery.</p></article>
+  </div>
 </section>
 
 <section id="work">
+  <span class="eyebrow rv">Experience</span>
   <h2 class="rv">Where I’ve worked</h2>
   <p class="sub rv">Tap a role to open it.</p>
   <div class="tl rv">
@@ -208,6 +248,7 @@ footer{padding:30px 5vw 50px;text-align:center;color:var(--mute);font-size:14px}
 </section>
 
 <section id="projects">
+  <span class="eyebrow rv">Projects</span>
   <h2 class="rv">Things I’ve built</h2>
   <p class="sub rv">Pick a skill to see which projects use it.</p>
   <div class="chips rv" id="chips" role="group" aria-label="Filter projects by skill"></div>
@@ -215,6 +256,7 @@ footer{padding:30px 5vw 50px;text-align:center;color:var(--mute);font-size:14px}
 </section>
 
 <section id="skills">
+  <span class="eyebrow rv">Skills</span>
   <h2 class="rv">What I work with</h2>
   <p class="sub rv">Choose an area to see my skill levels.</p>
   <div class="sk g rv">
@@ -225,7 +267,8 @@ footer{padding:30px 5vw 50px;text-align:center;color:var(--mute);font-size:14px}
 </section>
 
 <section id="certs">
-  <h2 class="rv">Certificates</h2>
+  <span class="eyebrow rv">Certificates</span>
+  <h2 class="rv">Proof of learning</h2>
   <p class="sub rv">Each card opens the certificate.</p>
   <div class="cg rv">
     <a class="cc g" href="https://drive.google.com/file/d/1mvkWdgy0qYEQbN9lpRfFHsmLdQt69l8h/view?usp=sharing" target="_blank" rel="noopener"><b>AWS Solutions Architect Associate</b><span>ExcelR · Feb 2024, with distinction</span></a>
@@ -236,10 +279,13 @@ footer{padding:30px 5vw 50px;text-align:center;color:var(--mute);font-size:14px}
 </section>
 
 <section id="contact">
-  <h2 class="rv">Let’s talk</h2>
-  <p class="sub rv">Open to conversations about GenAI, data science and cloud roles.</p>
-  <a class="big rv" href="mailto:rsoumya0206@gmail.com">rsoumya0206@gmail.com</a>
-  <div class="soc rv"><a href="https://www.linkedin.com/in/soumyadip-roy-592406219" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/LinearSoumya" target="_blank" rel="noopener">GitHub</a><a href="https://www.datascienceportfol.io/SoumyadipRoy" target="_blank" rel="noopener">Data science portfolio</a></div>
+  <div class="box g rv">
+    <span class="eyebrow">Contact</span>
+    <h2>Let’s talk</h2>
+    <p class="sub">Open to conversations about GenAI, data science and cloud roles.</p>
+    <a class="big" href="mailto:rsoumya0206@gmail.com">rsoumya0206@gmail.com</a>
+    <div class="soc"><a href="https://www.linkedin.com/in/soumyadip-roy-592406219" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/LinearSoumya" target="_blank" rel="noopener">GitHub</a><a href="https://www.datascienceportfol.io/SoumyadipRoy" target="_blank" rel="noopener">Data science portfolio</a></div>
+  </div>
 </section>
 <footer>© <span id="yr"></span> Soumyadip Roy</footer>
 
@@ -255,6 +301,16 @@ let ri=0,ci=0,del=false;const ty=document.getElementById('ty');
 (function t(){const w=roles[ri];ci+=del?-1:1;ty.textContent=w.slice(0,ci);let d=del?25:55;
 if(!del&&ci===w.length){del=true;d=1800}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;d=300}setTimeout(t,d)})();
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* marquee (list is duplicated for a seamless loop) */
+const tech=["Azure OpenAI","RAG","FastAPI","LangChain","FAISS + BM25","Durable Functions","UMAP + HDBSCAN","Python","SQL","Scikit-learn","Plotly","PostgreSQL"];
+document.getElementById('mq').innerHTML=[...tech,...tech].map(x=>`<span>${x}</span>`).join('');
+
+/* animated counters */
+const cio=new IntersectionObserver(e=>e.forEach(x=>{if(!x.isIntersecting)return;const el=x.target,n=+el.dataset.n,sf=el.dataset.s||'';
+const run=ts=>{const p=Math.min((ts-t0)/1200,1);el.textContent=Math.round(n*p).toLocaleString('en-US')+sf;if(p<1)requestAnimationFrame(run)};
+let t0=performance.now();requestAnimationFrame(run);cio.unobserve(el)}),{threshold:.6});
+document.querySelectorAll('[data-n]').forEach(e=>cio.observe(e));
 
 const bar=document.getElementById('bar');
 addEventListener('scroll',()=>{bar.style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%'},{passive:true});
